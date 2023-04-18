@@ -40,8 +40,8 @@ const useSignin = () => {
         httpRequestHeader,
       )
       alert("로그인되었습니다. 😎")
-      localStorage.setItem("JWT", response.data.access_token)
-      navigate("/todos")
+      localStorage.setItem("access_token", response.data.access_token)
+      navigate("/todo")
       return response.data.access_token
     } catch (error) {
       alert("이메일 혹은 비밀번호가 틀린거..같은데요?😓")
@@ -51,10 +51,10 @@ const useSignin = () => {
   }
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("JWT")
+    const accessToken = localStorage.getItem("access_token")
     if (accessToken) {
       alert("이미 로그인이 되있으시네요?🤔")
-      navigate("/todos")
+      navigate("/todo")
     }
   }, [navigate])
 

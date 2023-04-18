@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: <Signin />,
       },
       {
-        path: "/todos",
+        path: "/todo",
         element: <Todo />,
       },
       {

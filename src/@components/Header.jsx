@@ -6,7 +6,7 @@ const Header = () => {
     { id: "home", text: "홈", href: "/" },
     { id: "signup", text: "회원가입", href: "/signup" },
     { id: "signin", text: "로그인", href: "/signin" },
-    { id: "todos", text: "todos", href: "/todos" },
+    { id: "todo", text: "todo", href: "/todo" },
     { id: "logout", text: "logout", href: "/logout" },
   ]
 

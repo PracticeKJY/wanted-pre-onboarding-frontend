@@ -39,7 +39,7 @@ const useSignup = () => {
         httpRequestHeader,
       )
       alert("고객님, 회원이 되신걸 축하드립니다! 🎉")
-      console.log(response.status)
+
       navigate("/signin")
     } catch (error) {
       alert(error.response.data.message)
@@ -57,10 +57,10 @@ const useSignup = () => {
   }, [emailAddress, passWord])
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("JWT")
+    const accessToken = localStorage.getItem("access_token")
     if (accessToken) {
       alert("이미 로그인이 되어있으시네요?🤔")
-      navigate("/todos")
+      navigate("/todo")
     }
   }, [navigate])
 

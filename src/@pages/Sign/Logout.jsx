@@ -6,7 +6,7 @@ function Logout() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    localStorage.removeItem("JWT")
+    localStorage.removeItem("access_token")
     navigate("/signin")
   }, [navigate])
 
