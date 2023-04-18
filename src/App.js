@@ -1,25 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+/* --------------------------------- modules -------------------------------- */
+import { lazy, Suspense } from "react"
+
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import "./App.css"
+//sync (bundle)
+// import WelcomePage from "./WelcomePage"
+
+//async (code splitiing)
+//Dynamic import
+//react.lazy + suspense + fallback(스피너)
+
+/* ---------------------------------- pages --------------------------------- */
+const Layout = lazy(() => import("./Layout"))
+const Home = lazy(() => import("./@pages/Home/Home"))
+const Signup = lazy(() => import("./@pages/Sign/Signup/Signup"))
+const Signin = lazy(() => import("./@pages/Sign/Signin/Signin"))
+const Todo = lazy(() => import("./@pages/ToDo/Todo"))
+const Logout = lazy(() => import("./@pages/Sign/Logout"))
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/signin",
+        element: <Signin />,
+      },
+      {
+        path: "/todos",
+        element: <Todo />,
+      },
+      {
+        path: "/logout",
+        element: <Logout />,
+      },
+    ],
+  },
+])
+
+/* ----------------------------------- app ---------------------------------- */
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Suspense fallback={<Loading />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </div>
-  );
+  )
 }
 
-export default App;
+function Loading() {
+  return <div role="alert">로딩중 ...</div>
+}
+
+export default App
