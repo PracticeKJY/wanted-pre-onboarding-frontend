@@ -156,7 +156,6 @@ export const ModifyInput = ({
       <form onSubmit={onSubmit}>
         <label>
           <input
-            // className={styles.modifyInputCheckbox}
             type="checkbox"
             checked={todo.isCompleted}
             onChange={checkboxOnChange}

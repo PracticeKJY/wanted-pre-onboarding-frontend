@@ -59,6 +59,7 @@ const useTodo = () => {
         updatedTodo,
         httpRequestHeader,
       )
+
       return data
     } catch (error) {
       console.error(`Error in updateTodos: ${error.message}`)

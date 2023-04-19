@@ -1,7 +1,12 @@
 /* --------------------------------- modules -------------------------------- */
 import { lazy, Suspense } from "react"
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import {
+  RouterProvider,
+  createRoutesFromElements,
+  createHashRouter,
+  Route,
+} from "react-router-dom"
 import "./App.css"
 //sync (bundle)
 // import WelcomePage from "./WelcomePage"
@@ -18,7 +23,7 @@ const Signin = lazy(() => import("./@pages/Sign/Signin/Signin"))
 const Todo = lazy(() => import("./@pages/ToDo/Todo"))
 const Logout = lazy(() => import("./@pages/Sign/Logout"))
 
-const router = createBrowserRouter([
+let router = createHashRouter([
   {
     path: "/",
     element: <Layout />,
@@ -28,24 +33,40 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <Signup />,
       },
       {
-        path: "/signin",
+        path: "signin",
         element: <Signin />,
       },
       {
-        path: "/todo",
+        path: "todo",
         element: <Todo />,
       },
       {
-        path: "/logout",
+        path: "logout",
         element: <Logout />,
       },
     ],
   },
 ])
+
+router = createHashRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={<Layout />}
+      errorElement={<div role="alert">라우팅 오류 발생</div>}
+    >
+      <Route index element={<Home />} />
+      <Route path="signup" element={<Signup />} />
+      <Route path="Signin" element={<Signin />} />
+      <Route path="Todo" element={<Todo />} />
+      <Route path="Logout" element={<Logout />} />
+    </Route>,
+  ),
+)
 
 /* ----------------------------------- app ---------------------------------- */
 
