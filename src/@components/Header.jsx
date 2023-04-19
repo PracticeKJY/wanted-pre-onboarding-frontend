@@ -1,4 +1,4 @@
-import classes from "./Header.module.scss"
+import styles from "./Header.module.css"
 import NavList from "./NavList"
 
 const Header = () => {
@@ -11,8 +11,8 @@ const Header = () => {
   ]
 
   return (
-    <header className={classes.header}>
-      <nav className={classes.gnb}>
+    <header className={styles.header}>
+      <nav className={styles.gnb}>
         <ul>
           {list.map((item) => (
             <NavList key={item.id} item={item} />

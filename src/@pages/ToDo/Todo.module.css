@@ -1,0 +1,59 @@
+.container {
+  width: auto;
+  margin-left: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.NewTodoContainer {
+  margin-bottom: 50px;
+}
+
+.title {
+  margin-bottom: 50px;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.newTodoInput {
+  width: 200px;
+  padding: 5px 0;
+  margin-right: 6px;
+}
+
+.newTodoButton {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: transparent;
+}
+
+/* ------------------------------- ModifyInput ------------------------------ */
+
+.modifyInputList {
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 30px;
+  padding: 4px;
+}
+
+.modifyButton {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: transparent;
+  margin-left: 30px;
+}
+.deleteButton {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: transparent;
+  margin-left: 5px;
+}
+
+/* ------------------------------- SubmitInput ------------------------------ */
+
+.modifyInput {
+  padding: 3px 0;
+}

@@ -7,6 +7,7 @@ function Logout() {
 
   useEffect(() => {
     localStorage.removeItem("access_token")
+    alert("로그아웃되었습니다😀")
     navigate("/signin")
   }, [navigate])
 

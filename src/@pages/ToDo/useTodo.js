@@ -27,7 +27,7 @@ const useTodo = () => {
       const { data } = await axios.get(createApiUrl, httpRequestHeader)
       setTodos(data)
     } catch (error) {
-      console.log(error)
+      console.error(`Error in getTodos: ${error.message}`)
     }
   }
 
@@ -43,7 +43,7 @@ const useTodo = () => {
       )
       setTodos((todo) => [...todo, response.data])
     } catch (error) {
-      console.log(error)
+      console.error(`Error in onSubmitPostTodo: ${error.message}`)
     }
   }
 
@@ -59,10 +59,9 @@ const useTodo = () => {
         updatedTodo,
         httpRequestHeader,
       )
-
       return data
     } catch (error) {
-      console.log(error)
+      console.error(`Error in updateTodos: ${error.message}`)
     }
   }
 
@@ -72,18 +71,19 @@ const useTodo = () => {
         `https://www.pre-onboarding-selection-task.shop/todos/${todoId}`,
         httpRequestHeader,
       )
-
       const newTodos = todos.filter((todo) => {
         return todo.id !== todoId
       })
       setTodos(newTodos)
+      console.log(response.status)
+      alert("삭제 되었습니다")
     } catch (error) {
-      console.log(error)
+      console.error(`Error in onClickDeleteTodo: ${error.message}`)
     }
   }
 
   /* --------------------------------- handler -------------------------------- */
-  const test = async (todoId, newTodo, isCompleted) => {
+  const onChangeIsCompleted = async (todoId, newTodo, isCompleted) => {
     const foundTodo = todos.find((todo) => todo.id === todoId)
 
     await updateTodos(foundTodo.id, newTodo, isCompleted)
@@ -102,8 +102,6 @@ const useTodo = () => {
     e.preventDefault()
     const foundTodo = todos.find((todo) => todo.id === editTodoId)
 
-    console.log(foundTodo, "뭐나오는데요")
-
     await updateTodos(foundTodo.id, newTodo, foundTodo.isCompleted)
 
     setTodos((prevTodos) =>
@@ -115,8 +113,8 @@ const useTodo = () => {
     setEditTodoId(null)
   }
 
-  const onClickAddTodoList = (event) => {
-    const { value } = event.target
+  const onClickAddTodoList = (e) => {
+    const { value } = e.target
     setTodo({
       ...todo,
       addTodo: value,
@@ -134,6 +132,14 @@ const useTodo = () => {
   const onClickCancelEdit = () => {
     setEditTodoId(null)
   }
+
+  const resetInputValue = () => {
+    setTodo({
+      ...todo,
+      addTodo: "",
+    })
+  }
+
   /* ----------------------------------- --- ---------------------------------- */
   useEffect(() => {
     ;(async () => await getTodos())()
@@ -160,11 +166,12 @@ const useTodo = () => {
     onSubmitPostTodo,
     updateTodos,
     onClickDeleteTodo,
-    test,
+    onChangeIsCompleted,
     onClickAddTodoList,
     onClickEditTodoList,
     onSubmitEditTodoList,
     onClickCancelEdit,
+    resetInputValue,
   }
 }
 

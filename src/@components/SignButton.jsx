@@ -1,6 +1,8 @@
+import styles from "./SignButton.module.css"
+
 const SignButton = ({ children, id, disabled }) => {
   return (
-    <button data-testid={id} disabled={disabled}>
+    <button className={styles.SignButton} data-testid={id} disabled={disabled}>
       {children}
     </button>
   )

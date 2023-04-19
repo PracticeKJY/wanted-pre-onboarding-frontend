@@ -1,6 +1,7 @@
 import useSignup from "./useSignup"
 import SignForm from "../../../@components/SignForm"
 import SignButton from "../../../@components/SignButton"
+import styles from "./Signup.module.css"
 
 function Signup() {
   const {
@@ -19,28 +20,32 @@ function Signup() {
         <div>회원가입 중😀</div>
       ) : (
         <div>
-          <div style={{ padding: "20px 0 ", fontWeight: 600 }}>Signup</div>
-          <form onSubmit={onSubmit}>
-            <SignForm
-              id="email-input"
-              type="email"
-              value={emailAddress}
-              placeholder="Iwant@pass.com"
-              onChange={handleChangeEmailAddress}
-            />
-            <SignForm
-              id="password-input"
-              type="password"
-              value={passWord}
-              placeholder="********"
-              onChange={handleChangePassword}
-            />
-            <SignButton
-              id="signup-button"
-              disabled={disable}
-              children="회원가입"
-            />
-          </form>
+          <div className={styles.signTitle}>Signup</div>
+          <div className={styles.signFormContainer}>
+            <form onSubmit={onSubmit} className={styles.form}>
+              <div className={styles.inputContainer}>
+                <SignForm
+                  id="email-input"
+                  type="email"
+                  value={emailAddress}
+                  placeholder="Iwant@pass.com"
+                  onChange={handleChangeEmailAddress}
+                />
+                <SignForm
+                  id="password-input"
+                  type="password"
+                  value={passWord}
+                  placeholder="********"
+                  onChange={handleChangePassword}
+                />
+              </div>
+              <SignButton
+                id="signup-button"
+                disabled={disable}
+                children="회원가입"
+              />
+            </form>
+          </div>
         </div>
       )}
     </>

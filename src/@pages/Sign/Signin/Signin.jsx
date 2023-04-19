@@ -1,7 +1,7 @@
 import useSignin from "./useSignin"
 import SignForm from "../../../@components/SignForm"
 import SignButton from "../../../@components/SignButton"
-
+import styles from "../Signup/Signup.module.css"
 function Signin() {
   const {
     emailAddress,
@@ -18,28 +18,32 @@ function Signin() {
         <div>로그인 중😀</div>
       ) : (
         <div>
-          <div style={{ padding: "20px 0 ", fontWeight: 600 }}>Signin</div>
-          <form onSubmit={onSubmit}>
-            <SignForm
-              id="email-input"
-              type="email"
-              value={emailAddress}
-              placeholder="Iwant@pass.com"
-              onChange={handleChangeEmailAddress}
-            />
-            <SignForm
-              id="password-input"
-              type="password"
-              value={passWord}
-              placeholder="********"
-              onChange={handleChangePassword}
-            />
-            <SignButton
-              id="signin-button"
-              disabled={disable}
-              children="로그인"
-            />
-          </form>
+          <div className={styles.signTitle}>Signin</div>
+          <div className={styles.signFormContainer}>
+            <form onSubmit={onSubmit} className={styles.form}>
+              <div className={styles.inputContainer}>
+                <SignForm
+                  id="email-input"
+                  type="email"
+                  value={emailAddress}
+                  placeholder="Iwant@pass.com"
+                  onChange={handleChangeEmailAddress}
+                />
+                <SignForm
+                  id="password-input"
+                  type="password"
+                  value={passWord}
+                  placeholder="********"
+                  onChange={handleChangePassword}
+                />
+              </div>
+              <SignButton
+                id="signin-button"
+                disabled={disable}
+                children="로그인"
+              />
+            </form>
+          </div>
         </div>
       )}
     </>
