@@ -12,4 +12,5 @@ https://practicekjy.github.io/wanted-pre-onboarding-frontend/#/
 
 ## 데모 영상
 
-![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/119389577/233116277-d4da3f1f-7668-4a93-a390-3f2050cc5c2e.gif)
+
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/119389577/233121305-b2f495c1-9a9e-4af1-959e-a8bf49dcf28e.gif)
