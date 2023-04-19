@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwanted_pre_onboarding_frontend=self.webpackChunkwanted_pre_onboarding_frontend||[]).push([[110],{110:function(e,n,r){r.r(n);var t=r(791),a=r(689),o=r(184);n.default=function(){var e=(0,a.s0)();return(0,t.useEffect)((function(){localStorage.removeItem("access_token"),alert("\ub85c\uadf8\uc544\uc6c3\ub418\uc5c8\uc2b5\ub2c8\ub2e4\ud83d\ude00"),e("/signin")}),[e]),(0,o.jsx)("div",{children:"\ub85c\uadf8\uc544\uc6c3 \uc911..."})}}}]);
+//# sourceMappingURL=110.44b04368.chunk.js.map
